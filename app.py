@@ -3,6 +3,8 @@ ns = {'ns':'http://www.sped.fazenda.gov.br/nfse'}
 def parse_nfse(xml):
     tree = ET.parse(xml)
     root = tree.getroot()
+    #Numero da NFS-e
+    numero = root.find('ns:infNFSe//ns:nNFSe',ns).text if root.find('ns:infNFSe//ns:nNFSe',ns) is not None else "Não informado"
     #Local da prestação do serviço
     loc_prestacao = root.find('ns:infNFSe//ns:xLocPrestacao',ns).text if root.find('ns:infNFSe//ns:xLocPrestacao',ns) is not None else "Não informado"
     #Local de incidência do ISSQN
