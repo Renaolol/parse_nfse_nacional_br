@@ -32,21 +32,5 @@ def parse_nfse(xml):
     #CSLL
     ret_csll = float(root.find('ns:infNFSe//ns:valores//ns:tribFed//ns:vRetCSLL',ns).text) if root.find('ns:infNFSe//ns:valores//ns:tribFed//ns:vRetCSLL',ns) is not None else 0.00
 
-    print(
-        "Dados extraídos:\n"
-        f"- Local da prestação: {loc_prestacao}\n"
-        f"- Local de incidência do ISSQN: {loc_incid_issqn}\n"
-        f"- Emitente: {emitente}\n"
-        f"- Destinatário: {destinatario}\n"
-        f"- Valor líquido: {valor_liquido}\n"
-        f"- Valor retido: {valor_retido}\n"
-        f"- Valor do serviço: {valor_servico}\n"
-        f"- ISSQN: {iss}\n"
-        f"- PIS: {pis}\n"
-        f"- COFINS: {cofins}\n"
-        f"- Retenção CP: {ret_cp}\n"
-        f"- Retenção IRRF: {ret_irrf}\n"
-        f"- Retenção CSLL: {ret_csll}"
-    )
+    return loc_prestacao, loc_incid_issqn, emitente, destinatario, valor_liquido, valor_retido, valor_servico, iss, pis, cofins, ret_cp, ret_irrf, ret_csll
 
-parse_nfse('nfse2.xml')
